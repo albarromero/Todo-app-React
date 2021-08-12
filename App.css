@@ -1,0 +1,86 @@
+.App {
+  text-align: center;
+}
+
+.App-content {
+  background-color: #979ef7;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: white;
+}
+
+form input {
+  height: 25px;
+  width: 200px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  display: flex;
+  margin-top: 10px;
+  transition: all .3s;
+}
+
+form input:focus {
+  outline:none;
+  border: 1px solid #5e62a1;
+  transform: scale(1.05);
+}
+
+
+form button {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin: 20px 0;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  color: white;
+  background-color: #4d5185;
+  height: 30px;
+  width: 150px;
+  transition: all .3s;
+}
+
+form button:hover {
+  background-color: #5e62a1;
+  transform: scale(1.1);
+}
+
+h3 {
+  margin: 0;
+}
+
+.list {
+  display: flex;
+  margin: 10px;
+  flex-direction: row;
+  align-items: flex-end;
+  transition: all .3s;
+}
+
+.list:hover {
+  transform: scale(1.1);
+}
+
+.btn-delete {
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  background-color:#4d5185;
+  height: 25px;
+  width: 25px;
+  margin-left: 10px;
+  transition: all .3s;
+}
+
+.btn-delete:hover {
+  background-color: red;
+}
