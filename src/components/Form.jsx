@@ -2,11 +2,19 @@ import React, { useState } from 'react';
 import Todo from './Todo';
 
 const Form = () => {
-    
+    const [field, setField] = useState("");
     const [todo, setTodo] = useState({});
     const [todos, setTodos] = useState([]);
     
-    const handleChange = e => setTodo({[e.target.name]: e.target.value});
+    const handleChange = e => {
+        setField(e.target.value);
+        setTodo({[e.target.name]: field});
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        setField("");
+    }
 
     const handleClick = e => {
         if(Object.keys(todo).length === 0 || todo.todo.trim() === '') {
@@ -24,8 +32,8 @@ const Form = () => {
 
     return (
         <>
-            <form onSubmit={e => e.preventDefault()} autoComplete="off">
-                <input type="text" name="todo" onChange={handleChange}/>
+            <form onSubmit={handleSubmit} autoComplete="off">
+                <input type="text" name="todo" value={field} onChange={handleChange}/>
                 <button onClick={handleClick}>Add</button>
             </form>
             {
