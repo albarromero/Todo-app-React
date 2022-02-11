@@ -25,7 +25,6 @@ const Form = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        setTodo({todo: ""});
         setField("");
     }
 
