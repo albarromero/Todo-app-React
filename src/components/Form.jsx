@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Todo from './Todo';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,7 +8,15 @@ toast.configure();
 const Form = () => {
     const [field, setField] = useState("");
     const [todo, setTodo] = useState({});
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState(()=>{
+        const saved = localStorage.getItem("todos");
+        const initialValues = JSON.parse(saved);
+        return initialValues || [];
+    });
+
+    useEffect(()=>{
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }, [todos]);
     
     const handleChange = e => {
         setField(e.target.value);
@@ -17,6 +25,7 @@ const Form = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        setTodo({todo: ""});
         setField("");
     }
 
