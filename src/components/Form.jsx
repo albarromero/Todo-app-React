@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import Todo from './Todo';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure();
 
 const Form = () => {
     const [field, setField] = useState("");
@@ -8,7 +12,7 @@ const Form = () => {
     
     const handleChange = e => {
         setField(e.target.value);
-        setTodo({[e.target.name]: field});
+        setTodo({[e.target.name]: e.target.value});
     }
 
     const handleSubmit = e => {
@@ -22,12 +26,14 @@ const Form = () => {
             return;
         }
         setTodos([...todos, todo]);
+        toast.success("New item added");
     }
     
     const deleteTodo = index => {
         const newTodos = [...todos];
         newTodos.splice(index, 1);
         setTodos(newTodos);
+        toast.warning("Item deleted");
     }
 
     return (
